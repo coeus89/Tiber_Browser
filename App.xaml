@@ -4,4 +4,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Tiber_Browser">
 
+    <Application.Resources>
+        <SolidColorBrush x:Key="wbBackground" Color="#D3DEDC" />
+        <SolidColorBrush x:Key="wbLightBlue" Color="#92A9BD" />
+        <SolidColorBrush x:Key="wbDarkBlue" Color="#7C99AC" />
+        <SolidColorBrush x:Key="wbYellow" Color="#FAEDC6" />
+    </Application.Resources>
+
 </Application>

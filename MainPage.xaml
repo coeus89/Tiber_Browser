@@ -6,9 +6,60 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{StaticResource wbBackground}">
 
-    <Grid>
+    <Grid x:Name="BaseGrid">
+        <!-- Base Grid -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <!-- Title Bar Row Definition -->
+            <RowDefinition Height="40"/>
+            <!-- Navigation Bar Row Definition -->
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="TitleBarGrid" Grid.Row="1">
+            <!-- Title Bar Grid -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <!--Navigation Buttons Definition-->
+                <ColumnDefinition Width="4*"/>
+                <!--Search Bar Column Definition-->
+                <ColumnDefinition/>
+                <!--Settings Column Definition-->
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Orientation="Horizontal" Margin="10,0">
+                <Button x:Name="btnBack" Margin="0,0,10,0" Background="{x:Null}" Click="btnBack_Click">
+                    <Image Source="/Assets/Imgs/Back.png"/>
+                </Button>
+                <Button x:Name="btnForward"  Margin="0,0,10,0" Background="{x:Null}" Click="btnForward_Click">
+                    <Image Source="/Assets/Imgs/Forward.png"/>
+                </Button>
+            </StackPanel>
+
+            <!--Search Bar-->
+            <TextBox x:Name="SearchBar" TextWrapping="NoWrap" PlaceholderText="Search" Grid.Column="1" BorderThickness="0" VerticalAlignment="Center" 
+                     KeyDown="SearchBar_KeyDown"/>
+            
+            <!--Settings Flyout-->
+            <Button x:Name="btnSettings" Content="Settings" Grid.Column="2" HorizontalAlignment="Right" Margin="0,0,10,0" Background="{x:Null}">
+                <Button.Flyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem Text="Settings">
+                            
+                        </MenuFlyoutItem>
+                    </MenuFlyout>
+                </Button.Flyout>
+            </Button>
+
+        </Grid>
+        
+        <!--Web View-->
+        <WebView x:Name="web_Browser" Source="Https://www.bing.com/" Grid.Row="2"/>
 
     </Grid>
+
+
+
 </Page>
